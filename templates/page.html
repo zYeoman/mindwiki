@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block editorc -%}
+    <script id="minder-view">
+    </script>
+    <div style="position:absolute;">
+        <textarea wrap="off" name="Input" id="textinput" style=" resize: none;"></textarea>
+    </div>
+{%- endblock editorc %}
+
+{% block content %}
+{% endblock content %}
+
+{% block postscripts -%}
+{{ super() }}
+{%- endblock postscripts %}
+{% block editor -%}
+<script type="text/javascript" src="/static/kity.js"></script>
+<script type="text/javascript" src="/static/kityminder.core.js"></script>
+<script type="text/javascript" src="/static/mindwiki.js"></script>
+{%- endblock editor %}

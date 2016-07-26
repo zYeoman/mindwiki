@@ -1,0 +1,41 @@
+body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.container-fluid {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.km-view {
+    -webkit-user-select: none;
+    user-select: none;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.km-view .km-receiver {
+    position: absolute;
+    left: -99999px;
+    top: -99999px;
+    outline: none;
+    margin: 0;
+}
+#textinput {
+    border: none;
+    overflow: auto;
+    outline: none;
+    background: transparent;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
