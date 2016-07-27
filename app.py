@@ -4,7 +4,9 @@ MindWiki
 A webset of wiki use mindmap.
 
 Author: zYeoman(zhuangyw.thu#gmail.com)
-Last Edit: 2016-07-27
+Create: 2016-07-16
+Modify: 2016-07-27
+Version: 0.1.0
 '''
 import os
 from flask import (Flask, render_template, request)

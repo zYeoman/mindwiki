@@ -23,7 +23,15 @@ python2 ./app.py runserver
 ## TODO
 * 备注, 链接, 图片, 数学公式, Emoji等支持
 * 更多快捷键
+* 登录
 * git-base 存储
+* 新的MindMap JS实现
+
+## CHANGELOG
+* 0.1.0:
+    * 基础快捷键(`hjklo<Tab><Enter>`)
+    * 存储与读取
+    * 自动保存，全程无刷新
 
 ## 鸣谢
 * [kityminder-core](https://github.com/fex-team/kityminder-core)
