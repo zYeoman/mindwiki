@@ -4,7 +4,7 @@
 var km = window.km = new kityminder.Minder();
 km.renderTo('#minder-view');
 $.get(document.URL, {nofmt:'True'}, function(data){
-    km.importData('markdown', data);
+    km.importData('json', data);
 },'text');
 km.enable();
 // km.disable();
@@ -89,7 +89,7 @@ km.on('blur', function(e){
         },100);
         $.post(document.URL, 
                 {
-                    body: km.exportData('markdown').fulfillValue
+                    body: km.exportData('json').fulfillValue
                 });
     }   
 });

@@ -5,13 +5,14 @@ A webset of wiki use mindmap.
 
 Author: zYeoman(zhuangyw.thu#gmail.com)
 Create: 2016-07-16
-Modify: 2016-07-27
-Version: 0.1.0
+Modify: 2016-07-31
+Version: 0.1.1
 '''
 import os
 from flask import (Flask, render_template, request)
 from flask_script import Manager
 
+import convert
 
 APP = Flask(__name__)
 APP.config['CONTENT_DIR'] = 'notes'
@@ -41,17 +42,17 @@ def display(url):
         with open(path, 'rU') as file_read:
             content = file_read.read().decode('utf-8')
     else:
-        content = u'# ' + url.decode('utf-8')
+        content = u'# ' + url
     if request.method == 'POST':
         folder = os.path.dirname(path)
         if not os.path.exists(folder):
             os.makedirs(folder)
         with open(path, 'w') as file_write:
-            file_write.write(request.form.get('body').replace('\r\n', '\n').encode('utf-8'))
-
+            md = convert.km2md(request.form.get('body')).encode('utf-8')
+            file_write.write(md)
 
     if request.args.get('nofmt'):
-        return content
+        return convert.md2km(content)
     return render_template('page.html')
 
 if __name__ == '__main__':

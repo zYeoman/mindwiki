@@ -1,1 +1,4 @@
 notes
+*.swp
+*.pyc
+__pycache__\
