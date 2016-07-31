@@ -28,6 +28,8 @@ python2 ./app.py runserver
 * 新的MindMap JS实现
 
 ## CHANGELOG
+* 0.1.1:
+    * image,link,note 支持
 * 0.1.0:
     * 基础快捷键(`hjklo<Tab><Enter>`)
     * 存储与读取
