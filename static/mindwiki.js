@@ -72,6 +72,7 @@ km.on('keyup', function(e) {
                             }
                         });
         if (e.isShortcutKey('i')) EditNode();
+        if (e.isShortcutKey('x')) km.removeNode(node);
         if (e.isShortcutKey('o') && location.pathname == "/") {
             var new_url = node.data['text'];
             history.pushState(null,null,new_url);
