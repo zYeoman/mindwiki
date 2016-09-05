@@ -77,7 +77,7 @@ km.on('keyup', function(e) {
             var new_url = node.data['text'];
             history.pushState(null,null,new_url);
             $.get(document.URL, {nofmt:'True'}, function(data){
-                km.importData('markdown', data);
+                km.importData('json', data);
             },'text');
         }
     }
