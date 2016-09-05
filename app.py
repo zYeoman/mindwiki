@@ -31,12 +31,13 @@ def home():
     '''
     return display('home')
 
-@APP.route('/<path:url>', methods=['GET', 'POST'])
-def display(url):
+@APP.route('/<path:url>/', methods=['GET', 'POST'])
+def display(url, dirname=''):
     '''
     Page of mindwiki, auto generate.
     '''
     path = os.path.join(APP.config['CONTENT_DIR'],
+                        dirname,
                         url + '.md')
     if os.path.exists(path):
         with open(path, 'rU') as file_read:
@@ -54,6 +55,10 @@ def display(url):
     if request.args.get('nofmt'):
         return convert.md2km(content)
     return render_template('page.html')
+
+@APP.route('/<path:dirname>/<path:url>',methods=['GET', 'POST'])
+def deepdisplay(url, dirname):
+    return display(url, dirname)
 
 if __name__ == '__main__':
     MANAGER = Manager(APP)

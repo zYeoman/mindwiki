@@ -73,12 +73,15 @@ km.on('keyup', function(e) {
                         });
         if (e.isShortcutKey('i')) EditNode();
         if (e.isShortcutKey('x')) km.removeNode(node);
-        if (e.isShortcutKey('o') && location.pathname == "/") {
-            var new_url = node.data['text'];
-            history.pushState(null,null,new_url);
-            $.get(document.URL, {nofmt:'True'}, function(data){
-                km.importData('json', data);
-            },'text');
+        if (e.isShortcutKey('o')) {
+            if (node.getChildren().length==0){
+                var new_url = node.data['text'];
+                history.pushState(null,null,document.URL.replace(/\/$/, "") +'/'+new_url);
+                $.get(document.URL, {nofmt:'True'}, function(data){
+                    km.importData('json', data);
+                    km.focus();
+                },'text');
+            }
         }
     }
 });
