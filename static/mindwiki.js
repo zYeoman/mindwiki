@@ -3,12 +3,15 @@
 /* global kityminder */
 var km = window.km = new kityminder.Minder();
 km.renderTo('#minder-view');
-$.get(document.URL, {nofmt:'True'}, function(data){
-    km.importData('json', data);
-},'text');
+ReloadNode()
 km.enable();
 // km.disable();
 editflag=false;
+function ReloadNode(){
+    $.get(document.URL, {nofmt:'True'}, function(data){
+        km.importData('json', data);
+    },'text');
+}
 function EditNode(){
     editflag=true;
     var node = km.getSelectedNode();
@@ -77,11 +80,14 @@ km.on('keyup', function(e) {
             if (node.getChildren().length==0){
                 var new_url = node.data['text'];
                 history.pushState(null,null,document.URL.replace(/\/$/, "") +'/'+new_url);
-                $.get(document.URL, {nofmt:'True'}, function(data){
-                    km.importData('json', data);
-                    km.focus();
-                },'text');
+                ReloadNode();
             }
+        }
+        if (e.isShortcutKey('q')) {
+            history.back();
+            setTimeout(function(){
+                ReloadNode();
+            }, 100);
         }
     }
 });
