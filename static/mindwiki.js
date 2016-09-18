@@ -77,11 +77,12 @@ km.on('keyup', function(e) {
         if (e.isShortcutKey('i')) EditNode();
         if (e.isShortcutKey('x')) km.removeNode(node);
         if (e.isShortcutKey('o')) {
-            if (node.getChildren().length==0){
                 var new_url = node.data['text'];
                 history.pushState(null,null,document.URL.replace(/\/$/, "") +'/'+new_url);
                 ReloadNode();
-            }
+        }
+        if (e.isShortcutKey('y')) {
+
         }
         if (e.isShortcutKey('q')) {
             history.back();

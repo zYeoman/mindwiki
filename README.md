@@ -19,6 +19,8 @@ python2 ./app.py runserver
 * `Enter` 添加同级节点
 * `Tab` 添加子节点
 * `o` /下打开新页面
+* `q` 返回上一级
+* `x` 删除节点
 
 ## TODO
 * 备注, 链接, 图片, 数学公式, Emoji等支持
@@ -28,6 +30,10 @@ python2 ./app.py runserver
 * 新的MindMap JS实现
 
 ## CHANGELOG
+* 0.1.2:
+    * 新增快捷键`qx`
+    * 修复BUG
+    * 文件夹层次
 * 0.1.1:
     * image,link,note 支持
 * 0.1.0:
