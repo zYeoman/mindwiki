@@ -6,6 +6,8 @@
 
 ## 使用
 
+[GIF](http://7xkunb.com1.z0.glb.clouddn.com/gif.gif)
+
 ```
 git clone https://github.com/zYeoman/mindwiki
 cd mindwiki
@@ -23,6 +25,7 @@ python2 ./app.py runserver
 * `x` 删除节点
 
 ## TODO
+* Python3 支持：目前问题在文件读写编码上
 * 备注, 链接, 图片, 数学公式, Emoji等支持
 * 更多快捷键
 * 登录
