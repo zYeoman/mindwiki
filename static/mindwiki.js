@@ -77,6 +77,9 @@ km.on('keyup', function(e) {
         if (e.isShortcutKey('i')) EditNode();
         if (e.isShortcutKey('x')) km.removeNode(node);
         if (e.isShortcutKey('o')) {
+                $.post(document.URL, {
+                            body: km.exportData('json').fulfillValue
+                        });
                 var new_url = node.data['text'];
                 history.pushState(null,null,document.URL.replace(/\/$/, "") +'/'+new_url);
                 ReloadNode();
