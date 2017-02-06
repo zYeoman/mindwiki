@@ -5,7 +5,7 @@ A webset of wiki use mindmap.
 
 Author: zYeoman(zhuangyw.thu#gmail.com)
 Create: 2016-07-16
-Modify: 2016-09-05
+Modify: 2017-02-06
 Version: 0.1.2
 '''
 import os
@@ -21,8 +21,8 @@ APP.secret_key = 'sdklafj'
 try:
     APP.config.from_pyfile('config.py')
 except IOError:
-    print ("Startup Failure: You need to place a "
-           "config.py in your root directory.")
+    print("Startup Failure: You need to place a "
+          "config.py in your root directory.")
 
 @APP.route('/', methods=['GET', 'POST'])
 def home():
@@ -31,34 +31,30 @@ def home():
     '''
     return display('home')
 
-@APP.route('/<path:url>/', methods=['GET', 'POST'])
-def display(url, dirname=''):
+@APP.route('/<path:url>', methods=['GET', 'POST'])
+def display(url):
     '''
     Page of mindwiki, auto generate.
     '''
+    filename = url.strip('/').split('/')[-1]
     path = os.path.join(APP.config['CONTENT_DIR'],
-                        dirname,
-                        url + '.md')
+                        url.strip('/') + '.md')
     if os.path.exists(path):
         with open(path, 'rU') as file_read:
             content = file_read.read().decode('utf-8')
     else:
-        content = u'# ' + url
+        content = u'# ' + filename
     if request.method == 'POST':
         folder = os.path.dirname(path)
         if not os.path.exists(folder):
             os.makedirs(folder)
         with open(path, 'w') as file_write:
-            md = convert.km2md(request.form.get('body')).encode('utf-8')
-            file_write.write(md)
+            markdown = convert.km2md(request.form.get('body')).encode('utf-8')
+            file_write.write(markdown)
 
     if request.args.get('nofmt'):
         return convert.md2km(content)
     return render_template('page.html')
-
-@APP.route('/<path:dirname>/<path:url>',methods=['GET', 'POST'])
-def deepdisplay(url, dirname):
-    return display(url, dirname)
 
 if __name__ == '__main__':
     MANAGER = Manager(APP)
