@@ -5,8 +5,8 @@ A webset of wiki use mindmap.
 
 Author: zYeoman(zhuangyw.thu#gmail.com)
 Create: 2016-07-16
-Modify: 2017-02-06
-Version: 0.1.2
+Modify: 2017-02-07
+Version: 0.1.3
 '''
 import os
 from flask import (Flask, render_template, request)
