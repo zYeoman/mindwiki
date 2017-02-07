@@ -40,7 +40,7 @@ def display(url):
     path = os.path.join(APP.config['CONTENT_DIR'],
                         url.strip('/') + '.md')
     if os.path.exists(path):
-        with open(path, 'rU') as file_read:
+        with open(path, 'rb') as file_read:
             content = file_read.read().decode('utf-8')
     else:
         content = u'# ' + filename
@@ -48,7 +48,7 @@ def display(url):
         folder = os.path.dirname(path)
         if not os.path.exists(folder):
             os.makedirs(folder)
-        with open(path, 'w') as file_write:
+        with open(path, 'wb') as file_write:
             markdown = convert.km2md(request.form.get('body')).encode('utf-8')
             file_write.write(markdown)
 
