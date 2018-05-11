@@ -8,7 +8,7 @@
 
 ## 使用
 
-[GIF](http://7xkunb.com1.z0.glb.clouddn.com/gif.gif)
+![GIF](http://7xkunb.com1.z0.glb.clouddn.com/gif.gif)
 
 ```
 git clone https://github.com/zYeoman/mindwiki
