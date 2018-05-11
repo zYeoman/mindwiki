@@ -1,5 +1,7 @@
 # MindWiki
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 用mindmap来复习感觉还不错的样子?
 
 总之就是闲的蛋疼...

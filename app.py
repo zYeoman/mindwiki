@@ -24,12 +24,14 @@ except IOError:
     print("Startup Failure: You need to place a "
           "config.py in your root directory.")
 
+
 @APP.route('/', methods=['GET', 'POST'])
 def home():
     '''
     Root of mindwiki.
     '''
     return display('home')
+
 
 @APP.route('/<path:url>', methods=['GET', 'POST'])
 def display(url):
@@ -55,6 +57,7 @@ def display(url):
     if request.args.get('nofmt'):
         return convert.md2km(content)
     return render_template('page.html')
+
 
 if __name__ == '__main__':
     MANAGER = Manager(APP)
