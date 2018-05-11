@@ -85,7 +85,15 @@ km.on('keyup', function(e) {
                 ReloadNode();
         }
         if (e.isShortcutKey('y')) {
-
+        }
+        if (e.isShortcutKey('Tab')) {
+            EditNode();
+        }
+        if (e.isShortcutKey('Enter')) {
+            EditNode();
+        }
+        if (e.isShortcutKey('Shift+Tab')) {
+            EditNode();
         }
         if (e.isShortcutKey('q')) {
             history.back();
@@ -101,11 +109,11 @@ km.on('blur', function(e){
         setTimeout(function(){
             km.focus();
         },100);
-        $.post(document.URL, 
+        $.post(document.URL,
                 {
                     body: km.exportData('json').fulfillValue
                 });
-    }   
+    }
 });
 var mousedownonelement = false;
 
